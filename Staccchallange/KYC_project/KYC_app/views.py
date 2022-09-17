@@ -11,15 +11,22 @@ def PEP(request):
     response = requests.get(url)
     # convert reponse data into json
     data = response.json()
-    #selects hits object from dict
-    hits = data["hits"]
 
-    context = {
-        'hits': hits
-    }
-    #sends data to PEP.html
-    return render(request, "KYC_app/PEP.html",context)
-    pass
+    #basic error handeling,
+    if response.status_code == 200: #success
+        #selects hits object from dict
+        hits = data["hits"]
+        context = {
+            'hits': hits
+        }
+        #sends data to PEP.html
+        return render(request, "KYC_app/PEP.html",context)
+        pass
+    elif response.status_code == 400: #error
+        context = {
+            'error_message': 'something went wrong with api call'
+        }
+        return render(request, "KYC_app/PEP.html", context)
 
 
 def roller(request):
@@ -31,12 +38,20 @@ def roller(request):
     # convert reponse data into json
     rolle_data = response.json()
 
-    context = {
-        'rolle_data': rolle_data
-    }
-    # sends data to roller.html
-    return render(request, "KYC_app/roller.html", context)
-    pass
+    # basic error handeling,
+    if response.status_code == 200:  # success
+        # selects hits object from dict
+        context = {
+            'rolle_data': rolle_data
+        }
+        # sends data to roller.html
+        return render(request, "KYC_app/roller.html", context)
+        pass
+    elif response.status_code == 400: #error
+        context = {
+            'error_message': 'something went wrong with api call'
+        }
+        return render(request, "KYC_app/roller.html", context)
 
 
 def enheter(request):
@@ -47,14 +62,21 @@ def enheter(request):
     response = requests.get(url)
     # convert reponse data into json
     data = response.json()
-
     #sends data as key-value pair
     enheter_data = data.items()
 
-    context = {
-        'enheter_data': enheter_data
-    }
-    # sends data to enheter.html
-    return render(request, "KYC_app/enheter.html", context)
-    pass
+    # basic error handeling,
+    if response.status_code == 200:  # success
+        context = {
+            'enheter_data': enheter_data
+        }
+        # sends data to enheter.html
+        return render(request, "KYC_app/enheter.html", context)
+        pass
+    elif response.status_code == 400: #error
+        context = {
+            'error_message': 'something went wrong with api call'
+        }
+        return render(request, "KYC_app/enheter.html", context)
+
 

@@ -19,43 +19,28 @@
     <br>
     <br>
 
+    {% if error_message %}
+
+    <h3>something went wrong with api call, try again</h3>
+    {% else %}
+
       <div>
            <table class="table">
                 <thead>
                     <tr>
-
-                        <th>Name</th>
-                        <th>D.O.B</th>
-                        <th>countries</th>
-                        <th>Sanctions</th>
-                        <th>Phone</th>
-                        <th>emails</th>
-                        <th>dataset</th>
-                        <th>last_seen</th>
-                        <th>first_seen</th>
-
+                        <th>data</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for data in rolle_data %}
                     <tr>
                         <td>{{data}}</td>
-                        <td>{{data.birth_date}}</td>
-                        <td>{{data.countries}}</td>
-                        <td>{{data.sanctions}}</td>
-                        <td>{{data.phone}}</td>
-                        <td>{{data.emails}}</td>
-                        <td>{{data.dataset}}</td>
-                        <td>{{data.last_seen}}</td>
-                        <td>{{data.first_seen}}</td>
-
                     </tr>
                     {% endfor %}
                 </tbody>
-
             </table>
           </div>
-
+    {% endif %}
 
 
 

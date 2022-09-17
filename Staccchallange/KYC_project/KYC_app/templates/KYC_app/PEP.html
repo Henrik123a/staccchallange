@@ -19,16 +19,25 @@
     </form>
     <br>
     <br>
+ 
+     {% if error_message %}
+    <h3>something went wrong with api call, try again</h3>
+    {% else %}
+
         <div>
            <table class="table">
                 <thead>
                     <tr>
-
-                        <th>Name</th>
+                        <th>score</th>
+                        <th>id</th>
+                        <th>schema</th>
+                        <th>name</th>
+                        <th>aliases</th>
                         <th>D.O.B</th>
                         <th>countries</th>
+                        <th>identifiers</th>
                         <th>Sanctions</th>
-                        <th>Phone</th>
+                        <th>Phones</th>
                         <th>emails</th>
                         <th>dataset</th>
                         <th>last_seen</th>
@@ -37,9 +46,14 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     {% for data in hits %}
                     <tr>
+                        <td>{{data.score}}</td>
+                        <td>{{data.id}}</td>
+                        <td>{{data.schema}}</td>
                         <td>{{data.name}}</td>
+                        <td>{{data.aliases}}</td>
                         <td>{{data.birth_date}}</td>
                         <td>{{data.countries}}</td>
                         <td>{{data.sanctions}}</td>
@@ -55,7 +69,7 @@
 
             </table>
           </div>
-
+        {% endif %}
 
 
 
