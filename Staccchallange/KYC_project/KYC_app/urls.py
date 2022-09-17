@@ -3,5 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('PEP_check', views.PEP_check, name="home"),
+    path('PEP', views.PEP, name="KYC"),
+    path('roller', views.roller, name="KYC"),
+    path('enheter', views.enheter, name="KYC"),
+
 ]

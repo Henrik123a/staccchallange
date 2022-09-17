@@ -7,18 +7,19 @@
 </head>
 <body>
 
- <h1>PEP</h1>
-    <h2>Søk etter navn</h2>
+ <h1>KYC</h1>
+ <a href="PEP">PEP</a>
+ <a href="enheter">enheter</a>
+    <h2>Søk etter organsiasjon</h2>
+    <p>skriv in org nummer</p>
     <form action="" method="get">
-        <input type="text" name="name">
+        <input type="text" name="org_nummer">
         <button type="submit" value="Search">Search</button>
     </form>
     <br>
     <br>
 
-
-
-        <div>
+      <div>
            <table class="table">
                 <thead>
                     <tr>
@@ -36,9 +37,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for data in hits %}
+                    {% for data in rolle_data %}
                     <tr>
-                        <td>{{data.name}}</td>
+                        <td>{{data}}</td>
                         <td>{{data.birth_date}}</td>
                         <td>{{data.countries}}</td>
                         <td>{{data.sanctions}}</td>
@@ -54,7 +55,6 @@
 
             </table>
           </div>
-
 
 
 
