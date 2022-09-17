@@ -3,8 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('PEP', views.PEP, name="KYC"),
-    path('roller', views.roller, name="KYC"),
-    path('enheter', views.enheter, name="KYC"),
-
+    path('', views.PEP, name='PEP'),
+    path('PEP/', views.PEP, name="PEP"),
+    path('roller/', views.roller, name="roller"),
+    path('enheter/', views.enheter, name="enheter"),
 ]
