@@ -65,6 +65,7 @@ def enheter(request):
     # convert reponse data into json
     data = response.json()
     #sends data as key-value pair
+
     enheter_data = data.items()
 
     # basic error handeling,

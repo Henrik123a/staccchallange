@@ -25,19 +25,12 @@
     {% else %}
       <div>
            <table class="table">
-                <thead>
+                    {% for key,value in enheter_data %}
                     <tr>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for data in enheter_data %}
-                    <tr>
-                        <td>{{data}}</td>
+                        <th>{{key}}</th>
+                        <td>{{value}}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
-
             </table>
           </div>
 
