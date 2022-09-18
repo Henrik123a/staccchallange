@@ -14,10 +14,12 @@ def PEP(request):
 
     #basic error handeling,
     if response.status_code == 200: #success
-        #selects hits object from dict
+        #selects hits,numberOfHits keys from dict
         hits = data["hits"]
+        n_hits = data["numberOfHits"]
         context = {
-            'hits': hits
+            'hits': hits,
+            'n_hits': n_hits
         }
         #sends data to PEP.html
         return render(request, "KYC_app/PEP.html",context)

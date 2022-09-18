@@ -8,8 +8,8 @@
 <body>
 
  <h1>KYC</h1>
-  <a href="{% url 'roller' %}"> roller</a>
- <a href="{% url 'enheter' %}"> enheter</a>
+  <a href="{% url 'roller' %}"> Roller</a>
+ <a href="{% url 'enheter' %}"> Enheter</a>
 
     <h2>Søk etter PEP</h2>
     <p>skriv inn navn</p>
@@ -19,11 +19,11 @@
     </form>
     <br>
     <br>
- 
+
      {% if error_message %}
     <h3>something went wrong with api call, try again</h3>
     {% else %}
-
+    <h5>number of hits: {{n_hits}}</h5>
         <div>
            <table class="table">
                 <thead>
