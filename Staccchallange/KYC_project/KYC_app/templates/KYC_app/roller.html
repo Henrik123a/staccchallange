@@ -24,25 +24,17 @@
     <h3>something went wrong with api call, try again</h3>
     {% else %}
 
-      <div>
+    <div>
            <table class="table">
-                <thead>
+                    {% for test in data %}
                     <tr>
-                        <th>data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for data in rolle_data %}
-                    <tr>
-                        <td>{{data}}</td>
+
+                        <td>{{test}}</td>
                     </tr>
                     {% endfor %}
-                </tbody>
             </table>
           </div>
-    {% endif %}
 
-
-
+{% endif %}
 </body>
 </html>

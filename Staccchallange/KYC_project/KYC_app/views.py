@@ -32,19 +32,20 @@ def PEP(request):
 
 
 def roller(request):
+
     # gets org_number from org_number forum, from roller.html
     org_nummer = request.GET.get("org_nummer")
     # pull data stacc roller api
     url = f'https://code-challenge.stacc.dev/api/roller?orgNr={org_nummer}'
     response = requests.get(url)
     # convert reponse data into json
-    rolle_data = response.json()
+    data = response.json()
 
     # basic error handeling,
     if response.status_code == 200:  # success
         # selects hits object from dict
         context = {
-            'rolle_data': rolle_data
+            "data": data
         }
         # sends data to roller.html
         return render(request, "KYC_app/roller.html", context)
@@ -64,8 +65,8 @@ def enheter(request):
     response = requests.get(url)
     # convert reponse data into json
     data = response.json()
-    #sends data as key-value pair
 
+    #sends data as key-value pair
     enheter_data = data.items()
 
     # basic error handeling,
@@ -79,7 +80,7 @@ def enheter(request):
     elif response.status_code == 400: #error
         context = {
             'error_message': 'something went wrong with api call'
-        }
+        } # sends data to enheter.html
         return render(request, "KYC_app/enheter.html", context)
 
 
